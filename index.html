@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Official Materia Widget Gallery</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<style type="text/css">
+		/*
+			purple: #9f50a0
+			green: #71c14e
+			blue: #58a1ce
+			orange: #f28243;
+		 */
+		body,
+		html {
+			font-family: 'Lato', sans-serif;
+			font-size: 1.1em;
+			background-color: #58a1ce;
+			margin:0;
+			padding:0;
+		}
+
+		h1{
+			font-weight: 900;
+		}
+
+		.page-container{
+			padding: 20px 10px;
+			margin: 0 auto;
+			width: 450px;
+			background-color: white;
+		}
+
+		.site-description .small{
+			font-size: .8em;
+		}
+
+		.page-header {
+			text-align: center;
+			background: url('https://ucfopen.github.io/Materia-Docs/assets/img/logos/color/materia-logo-default-color.svg');
+			background-repeat: no-repeat;
+			background-size: auto 180px;
+			background-position: top center;
+			padding-top: 180px;
+			margin-bottom: 20px;
+		}
+
+		.engine-container em{
+			font-style: normal;
+			font-weight: 700;
+		}
+
+		.engine-container{
+			margin-bottom: 40px;
+			position: relative;
+			background-color: #f5f5f5;
+			border-radius: 10px;
+			border: 3px solid #f5f5f5;
+		}
+
+		.hide{
+			display: none !important;
+		}
+
+		.engine-container .engine-info{
+			position: relative;
+		}
+
+		.engine-container .title{
+			text-align: center;
+			font-size: 1.7em;
+			border-bottom: 1px solid #eee;
+			width: 90%;
+			margin: 0 auto 10px;
+			padding-bottom: 20px;
+		}
+		.engine-container .title span{
+			display: block;
+			font-size: .45em;
+		}
+
+		.engine-container .title .github-owner{
+			max-height: 20px;
+			margin: 2px 2px 2px 5px;
+			vertical-align: middle;
+		}
+
+		.engine-container .icon{
+			position: absolute;
+			top:0;
+			left:0;
+			width: 35%;
+			z-index: 2;
+		}
+		.engine-container .icon img{
+			width: 100%;
+		}
+
+		.engine-container .updated-date{
+			margin-top: -3px;
+			font-size: .6em;
+			text-align: center;
+		}
+
+		.engine-container .description{
+			position: absolute;
+			top:0;
+			right:0;
+			width: 63%;
+			height: 85px;
+			font-size: .8em;
+			overflow: scroll;
+			z-index: 1;
+		}
+
+		.engine-container .thumbnails{
+			position: absolute;
+			background-color: rgba(0,0,0,.15 );
+			top: 95px;
+			right: 0;
+			height: 80px;
+			width: 98%;
+			border-radius: 10px;
+			overflow: hidden;
+			box-sizing: border-box;
+			text-align: center;
+			padding: 2% 5px 2% 155px;
+		}
+
+		.engine-container .thumbnails .thumbnail{
+			display: inline-block;
+			height: 100%;
+			width: 30%;
+			padding-right: 5px;
+		}
+
+		.engine-container .thumbnails .thumbnail img{
+			height: 100%;
+			max-width: 87px;;
+		}
+
+		.github-info{
+			margin: 20px 10px 20px;
+			text-align: center;
+			width: 100%;
+		}
+
+		.github-info div{
+			display: inline-block;
+			padding-right: 10px;
+			font-size: .7em;
+		}
+
+		.github-info div em{
+			font-size: 1.2em;
+		}
+
+		.github-info > div:before{
+			margin-top: 0px;
+			width: 22px;
+			height: 22px;
+			content: " ";
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			display: inline-block;
+			vertical-align: bottom;
+			margin-right: 5px;
+		}
+
+
+		.github-watchers:before{
+			background-image: url("img/eye.svg");
+		}
+
+		.github-license:before{
+			background-image: url("img/document.svg");
+		}
+
+		.github-downloads:before{
+			background-image: url("img/download.svg");
+		}
+
+		.github-stars:before{
+			background-image: url("img/star.svg");
+		}
+
+		.github-forks:before{
+			background-image: url("img/fork.svg");
+		}
+
+		.buttons{
+			width: 100%;
+			text-align: center;
+			margin-bottom: 10px;
+		}
+
+		.buttons a{
+			text-decoration: none;
+			color: black;
+			display: inline-block;
+			font-size: 1.2em;
+			padding: 10px 30px 10px 10px;
+			border-radius: 10px;
+			background-color: blue;
+			box-shadow: none;
+			font-weight: 900;
+			cursor: pointer;
+		}
+
+		.buttons a:hover{
+			background-color: white;
+		}
+
+		.buttons a span:before{
+			display: inline-block;
+			height: 25px;
+			width: 30px;
+			content: "";
+			background-position: center right;
+			background-repeat: no-repeat;
+			vertical-align: bottom;
+			margin-right: 10px;
+		}
+
+		a.details-button{
+			background-color: #c569c6;
+			margin-right: 20px;
+		}
+
+		a.details-button span:before{
+			background-image: url("img/magnify-details.svg");
+		}
+
+
+		a.preview-button{
+			background-color: #88e95d;
+		}
+
+		a.preview-button span:before{
+			background-image: url("img/play.svg");
+		}
+
+		a.download-button{
+			background-color: #88e95d;
+		}
+		a.download-button span:before{
+			background-image: url("img/download.svg");
+		}
+
+		.description-wrapper{
+			display: block;
+			height: 175px;
+		}
+
+		.icon-credits{
+			display: inline-block;
+			font-size: .7em;
+			text-align: left;
+		}
+		.icon-credits ul{
+			font-size: .8em;
+			list-style: none;
+			padding-left: 0;
+		}
+		.icon-credits img{
+			max-height: 12px;
+			max-width: 12px;
+			margin-right: 10px;
+		}
+		.search{
+			margin: 50px auto;
+			display: block;
+			width: 80%;
+		}
+		.search input{
+			text-align: center;
+			font-size: 1.3em;
+			border-radius: 5px;
+			border: 3px solid #9f50a0;
+			padding: 10px 20px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		footer{
+			text-align: center;
+		}
+
+		.sort{
+			font-size: .75em;
+		}
+
+		.sort div{
+			display: inline-block;
+			background: #ccc;
+			border-radius: 2px;
+			padding: 2px 4px;
+			text-decoration: none;
+			color: black;
+			cursor: pointer;
+		}
+
+		.sort div.selected,
+		.sort div:hover{
+			background: #58a1ce;
+			color: white;
+		}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/3.0.2/timeago.min.js"></script>
+</head>
+<body>
+
+<body>
+	<div class="page-container">
+
+		<div class="page-header">
+			<h1>Widget Gallery</h1>
+
+			<div class="site-description">
+				<p>
+					Open source Materia widgets from Github.
+				</p>
+				<p class="small">
+					Learn how to <a href="https://ucfopen.github.io/Materia-Docs/admin/installing-widgets.html" target="_blank">install widgets</a>.
+				</p>
+				<p class="small">
+					Add widgets to the gallery using Github topic: <a href="https://github.com/topics/materia-widget">'materia-widget'</a>.
+				</p>
+			</div>
+
+			<div class="search"><input type="text" name="Search" onkeyup="onSearch(event);" placeholder="Search in page..."/></div>
+
+			<div class="sort">
+				sort:
+				<div class="selected" onclick="sortBy(event);">activity</div>
+				<div onclick="sortBy(event);">title</div>
+				<div onclick="sortBy(event);">stars</div>
+				<div onclick="sortBy(event);">watchers</div>
+				<div onclick="sortBy(event);">forks</div>
+				<div onclick="sortBy(event);">last update</div>
+			</div>
+		</div>
+
+		<div id="engines-container"></div>
+
+		<footer>
+			<div class="icon-credits">
+				Icons provided by The <a href="https://thenounproject.com/">Noun Project</a>:
+				<ul>
+					<li><a href="https://thenounproject.com/term/cloud-download/1588353/"><img src="img/download.svg">Download by Kimmi Studio</a></li>
+					<li><a href="https://thenounproject.com/search/?q=fork&creator=1480202&i=654674"><img src="img/fork.svg">Fork by Loudoun Design Co.</a></li>
+					<li><a href="https://thenounproject.com/term/star/860841/"><img src="img/star.svg">Star by Zaff Studio</a></li>
+					<li><a href="https://thenounproject.com/search/?q=search&creator=4154947&i=1935513"><img src="img/magnify-details.svg">Details by Tienan</a></li>
+					<!-- <li><a href="https://thenounproject.com/georgiana.ionescu/uploads/?i=1620940"><img src="img/play.svg">Controller by Georgiana Ionescu</a></li> -->
+					<li><a href="https://thenounproject.com/search/?q=eye&i=1810298"><img src="img/eye.svg">Eye by QOLBIN SALIIM</a></li>
+					<li><a href="https://thenounproject.com/search/?q=document&i=1055418"><img src="img/document.svg">Document by Arafat Uddin</a></li>
+
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+
+<script id="engine-container" type="text/template">
+	<div class="engine-container">
+		<h1 class="title">
+			{normalizedName}
+			<span>by: <img class="github-owner" src="{owner.avatar_url}" /><a href="https://github.com/{TODO_ORG}">{TODO_ORG}</a></span>
+		</h1>
+
+		<div class="engine-info">
+			<div class="description-wrapper">
+				<div class="icon">
+					<picture>
+						<source srcset="https://raw.githubusercontent.com/{full_name}/master/src/_icons/icon-275.png 1x, https://raw.githubusercontent.com/{full_name}/master/src/_icons/icon-275@2x.png 2x">
+						<img srcset="https://raw.githubusercontent.com/{full_name}/master/src/_icons/icon-275.png" alt="{normalizedName} Widget Icon">
+					</picture>
+
+					<div class="updated-date">updated <em datetime="{pushed_at}"></em></div>
+				</div>
+				<div class="description">
+					{description}
+				</div>
+				<div class="thumbnails">
+					<div class="thumbnail">
+						<a href="https://github.com/{full_name}/blob/master/src/_screen-shots/1.png" target="_blank">
+							<img src="https://github.com/{full_name}/blob/master/src/_screen-shots/1-thumb.png?raw=true" alt="thubmnail 1" >
+						</a>
+					</div>
+					<div class="thumbnail">
+						<a href="https://github.com/{full_name}/blob/master/src/_screen-shots/2.png" target="_blank">
+							<img src="https://github.com/{full_name}/blob/master/src/_screen-shots/2-thumb.png?raw=true" alt="thubmnail 1" >
+						</a>
+					</div>
+					<div class="thumbnail">
+						<a href="https://github.com/{full_name}/blob/master/src/_screen-shots/3.png" target="_blank">
+							<img src="https://github.com/{full_name}/blob/master/src/_screen-shots/3-thumb.png?raw=true" alt="thubmnail 1" >
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="github-info">
+				<div class="github-watchers"><em class="num">{watchers_count_display}</em> Watchers</div>
+				<div class="github-stars"><em class="num">{stargazers_count_display}</em> Stars</div>
+				<div class="github-forks"><em class="num">{forks_count_display}</em> Forks</div>
+				<div class="github-license"><em class="num">{license.spdx_id}</em></div>
+				<br/>
+				<div class="github-releases hide">Latest Version: <em class="num">?</em></div>
+				<div class="github-downloads hide"><em class="num">?</em> Downloads</div>
+			</div>
+
+			<div class="buttons">
+				<a href="{html_url}" class="details-button" target="_blank"><span>Details</span></a>
+				<!-- <a href="{html_url}/releases" class="preview-button" target="_blank"><span>Preview</span></a> -->
+				<a href="{html_url}/releases" class="download-button" target="_blank"><span>Download</span></a>
+			</div>
+		</div>
+	</div>
+</script>
+
+
+<script id="widget-release" type="text/template">
+	<div class="widget-release">
+		<div class="release-name"><a href="{html_url}" target="_blank">{tag_name}</a></div>
+		<div class="release-published_at">{published_at}</div>
+		<div class="release-assets"></div>
+	</div>
+</script>
+
+<script id="widget-assets" type="text/template">
+	<div class="widget-asset">
+		<div class="asset-name"><a href="{browser_download_url}" target="_blank">{name}</a></div>
+		<div class="asset-download-count">{download_count} downloads</div>
+		<div class="asset-size">{size} bytes</div>
+	</div>
+</script>
+
+<script>
+// https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+// const token = 'access_token=<TOKEN>'
+const token = ''
+const getNestedValue = function(o, s) {
+	s = s.replace(/\[(\w+)\]/g, '.$1');
+	s = s.replace(/^\./, '');
+	var a = s.split('.');
+	for (var i = 0, n = a.length; i < n; ++i) {
+		var k = a[i];
+		if (k in o) {
+			o = o[k];
+		} else {
+			return;
+		}
+	}
+	return o;
+}
+
+const sortString = (a,b) => a.normalizedName < b.normalizedName ? -1: 1
+const sortUpdate = (a,b) => {
+	if(a.update_time == b.update_time) return sortString(a, b)
+	return b.update_time - a.update_time
+}
+const sortActivity = (a, b) => {
+	if(a.activity == b.activity) return sortUpdate(a, b)
+	return b.activity - a.activity
+}
+const sortStars = (a,b) => {
+	if(a.stargazers_count == b.stargazers_count) return sortActivity(a, b)
+	return b.stargazers_count - a.stargazers_count
+}
+const sortWatchers = (a,b) => {
+	if(a.watchers_count == b.watchers_count) return sortActivity(a, b)
+	return b.watchers_count - a.watchers_count
+}
+const sortForks = (a,b) => {
+	if(a.forks_count == b.forks_count) return sortActivity(a, b)
+	return b.forks_count - a.forks_count
+}
+const sortMethods = {
+	activity: sortActivity,
+	title: sortString,
+	stars: sortStars,
+	watchers: sortWatchers,
+	forks: sortForks,
+	"last update": sortUpdate
+}
+
+const shortNum = n => {
+	if(n > 999){
+		let div = 1000
+		let unit = 'k'
+		if(n > 999999){
+			div = 1000000
+			unit = 'm'
+		}
+		return (n/div).toFixed(1) + unit
+	}
+	return n
+}
+
+const renderVarsInTemplateString = (template, templateVars) => {
+	let content = template
+	content = content.replace(/\{(.+?)\}/g, (match, param, offset, string) => {
+		try{
+			return getNestedValue(templateVars, param)
+		}
+		catch(error){
+			return match
+		}
+	})
+	return content
+}
+
+const displayResults = (results, sortMethod = 'activity', skipReleases=false) => {
+	const templateEl = document.getElementById('engine-container')
+	const template = templateEl.textContent
+	const listEl = document.getElementById('engines-container')
+	listEl.innerHTML = ''
+	json = results
+	json.items.forEach(item => {
+		item.TODO_ORG = item.owner.login
+		item.normalizedName = item.name.replace(/(\W|^)(\w)/g, (a, space, firstLetter) => ` ${firstLetter.toUpperCase()}`)
+		item.normalizedName = item.normalizedName.replace('Materia Widget', '')
+		item.update_time = new Date(item.pushed_at).getTime()
+		if(!item.license || !item.license.spdx_id) item.license = {spdx_id: 'no license'}
+		// this could be smarter - but it would require more api requests
+		item.activity = item.stargazers_count + item.forks_count + item.watchers_count
+
+		item.stargazers_count_display = shortNum(item.stargazers_count)
+		item.forks_count_display = shortNum(item.forks_count)
+		item.watchers_count_display = shortNum(item.watchers_count)
+	})
+
+	// sort by github stats + alphabetical
+	let sorted = json.items.sort(sortMethods[sortMethod])
+
+	let pChain = Promise.resolve()
+	sorted.forEach((item, index) => {
+		const div = document.createElement('div')
+		div.dataset.index = index
+		div.innerHTML = renderVarsInTemplateString(template, item)
+		timeago().render(div.querySelectorAll('.updated-date em'));
+		listEl.appendChild(div)
+		if(!skipReleases && token) pChain = pChain.then(() => loadReleases(div, item.full_name))
+	})
+}
+
+
+const loadReleases = (el, fullName) => {
+	return fetch(`https://api.github.com/repos/${fullName}/releases/latest?${token}`)
+	.then(response => response.json())
+	.then((json) => {updateRelease(el, json)})
+	.then(() => new Promise(resolve => setTimeout(resolve, 200)))
+}
+
+
+const updateRelease = (el, json) => {
+	const releaseEl = document.createElement('div')
+	const assetsContainerEl = releaseEl.querySelector('.release-assets')
+
+	if(typeof json.assets == 'undefined' || json.assets.length == 0) return
+	let assetEl
+	let widgetAsset
+
+	json.assets.forEach(asset => {
+		if(asset.name.match(/\.wigt$/)) {
+			widgetAsset = asset
+		}
+	})
+	el.querySelector('.github-downloads em').innerHTML = widgetAsset.download_count
+	el.querySelector('.github-downloads').classList.toggle('hide', false)
+	el.querySelector('.github-releases em').innerHTML = json.tag_name
+	el.querySelector('.github-releases').classList.toggle('hide', false)
+}
+
+
+function sortBy(event){
+	const mode = event.target.innerText
+	document.querySelectorAll('.sort div').forEach(el => el.classList.remove('selected'))
+	event.target.classList.add('selected')
+	displayResults(json, mode, true)
+}
+
+const onSearch = (event) => {
+	let search = event.target.value.toLowerCase()
+	let els = document.querySelectorAll('.engine-container')
+	els.forEach(el => {
+		let found
+		if(search == ''){
+			found = false
+		}
+		else{
+			found = !(el.innerText.toLowerCase().includes(search))
+		}
+		el.classList.toggle('hide', found)
+	})
+}
+
+let json;
+fetch(`https://api.github.com/search/repositories?q=topic:materia-widget&type=Repositories&${token}`)
+.then(response => response.json())
+.then(displayResults)
+
+</script>
+</body>
+</html>
